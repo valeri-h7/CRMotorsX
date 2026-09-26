@@ -1,0 +1,316 @@
+/* ===================================================
+   CONTAINER
+   =================================================== */
+
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+
+/* ===================================================
+   BOTONES
+   =================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 14px 28px;
+
+  border-radius: var(--radius-sm);
+
+  font-weight: 600;
+  font-size: 0.95rem;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn--primary {
+  background: var(--color-rojo);
+  color: var(--color-blanco);
+}
+
+
+/* ===================================================
+   HEADER
+   =================================================== */
+
+.header {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  z-index: 1000;
+
+  border-bottom: 2px solid var(--color-rojo);
+
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+/* ===================================================
+   HEADER EN HOME
+   =================================================== */
+
+/* Transparente mientras estás arriba del Hero */
+
+.header--home {
+  background: transparent;
+}
+
+
+/* ===================================================
+   HEADER EN OTRAS PÁGINAS
+   =================================================== */
+
+/* Negro desde el principio */
+
+.header--inner-page {
+  background: var(--color-negro);
+}
+
+
+/* ===================================================
+   HEADER HOME CUANDO HACES SCROLL
+   =================================================== */
+
+.header--home.header--scrolled {
+  background: var(--color-negro);
+
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+
+/* ===================================================
+   CONTENIDO DEL HEADER
+   =================================================== */
+
+.header__inner {
+  height: 76px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 24px;
+}
+
+
+/* ===================================================
+   LOGO
+   =================================================== */
+
+.header__logo {
+  display: flex;
+  align-items: center;
+
+  flex-shrink: 0;
+}
+
+.header__logo img {
+  display: block;
+
+  height: 54px;
+  width: auto;
+}
+
+
+/* ===================================================
+   NAVEGACIÓN
+   =================================================== */
+
+.header__nav {
+  display: flex;
+  align-items: center;
+
+  gap: 28px;
+}
+
+.header__nav a {
+  color: var(--color-blanco);
+
+  font-size: 0.95rem;
+  font-weight: 500;
+
+  text-decoration: none;
+
+  transition: color 0.2s ease;
+}
+
+.header__nav a:hover {
+  color: var(--color-rojo);
+}
+
+
+/* ===================================================
+   ACCIONES
+   =================================================== */
+
+.header__actions {
+  display: flex;
+  align-items: center;
+
+  gap: 16px;
+}
+
+
+/* ===================================================
+   BOTÓN HAMBURGUESA
+   =================================================== */
+
+.header__toggle {
+  display: none;
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 5px;
+
+  width: 40px;
+  height: 40px;
+
+  padding: 0;
+
+  background: transparent;
+
+  border: none;
+
+  cursor: pointer;
+}
+
+.header__toggle span {
+  display: block;
+
+  width: 24px;
+  height: 2px;
+
+  background: var(--color-blanco);
+}
+
+
+/* ===================================================
+   MOBILE
+   =================================================== */
+
+@media (max-width: 860px) {
+
+  .header__inner {
+    height: 76px;
+  }
+
+
+  /* -----------------------------------------------
+     MENÚ MOBILE
+     ----------------------------------------------- */
+
+  .header__nav {
+    position: absolute;
+
+    top: 76px;
+    left: 0;
+    right: 0;
+
+    display: none;
+
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 18px;
+
+    padding: 20px 24px;
+
+    background: var(--color-negro);
+
+    border-bottom: 2px solid var(--color-rojo);
+  }
+
+  .header__nav.is-open {
+    display: flex;
+  }
+
+
+  /* -----------------------------------------------
+     LINKS MOBILE
+     ----------------------------------------------- */
+
+  .header__nav a {
+    width: 100%;
+
+    padding: 6px 0;
+
+    font-size: 1rem;
+  }
+
+
+  /* -----------------------------------------------
+     HAMBURGUESA
+     ----------------------------------------------- */
+
+  .header__toggle {
+    display: flex;
+  }
+
+
+  /* -----------------------------------------------
+     WHATSAPP
+     ----------------------------------------------- */
+
+  .header__actions .btn {
+    padding: 10px 16px;
+
+    font-size: 0.85rem;
+  }
+}
+
+
+/* ===================================================
+   CELULARES PEQUEÑOS
+   =================================================== */
+
+@media (max-width: 500px) {
+
+  .container {
+    padding: 0 16px;
+  }
+
+
+  .header__logo img {
+    height: 46px;
+  }
+
+
+  .header__actions {
+    gap: 8px;
+  }
+
+
+  .header__actions .btn {
+    padding: 9px 12px;
+
+    font-size: 0.8rem;
+  }
+
+
+  .header__toggle {
+    width: 36px;
+    height: 36px;
+  }
+}

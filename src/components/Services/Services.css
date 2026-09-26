@@ -1,0 +1,152 @@
+.services-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 64px 24px;
+  background-color: #ffffff;
+}
+
+/* ENCABEZADO */
+.services-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.services-header h2 {
+  margin: 0 0 16px;
+  color: #1e293b;
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.services-header p {
+  max-width: 650px;
+  margin: 0 auto;
+  color: #64748b;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* GRID */
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+/* SERVICIO */
+
+.service-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* ICONO */
+
+.service-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 72px;
+  height: 72px;
+
+  margin-bottom: 16px;
+
+  border-radius: 50%;
+  background-color: #f8fafc;
+}
+
+.service-icon {
+  width: 48px;
+  height: 48px;
+  color: #1e293b;
+}
+
+/* TITULO */
+
+.service-card h3 {
+  margin: 0 0 16px;
+
+  color: #1e293b;
+
+  font-size: 20px;
+  font-weight: 700;
+
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* LISTA */
+
+.service-card ul {
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.service-card li {
+  color: #475569;
+
+  font-size: 16px;
+  font-weight: 500;
+
+  line-height: 1.4;
+}
+
+/* DESCRIPCIÓN */
+
+.service-card p {
+  max-width: 280px;
+
+  margin: 0;
+
+  color: #475569;
+
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* TABLET */
+
+@media (max-width: 1000px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px 32px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .services-section {
+    padding: 48px 20px;
+  }
+
+  .services-header {
+    margin-bottom: 48px;
+  }
+
+  .services-header h2 {
+    font-size: 30px;
+  }
+
+  .services-header p {
+    font-size: 16px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}

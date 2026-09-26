@@ -1,0 +1,279 @@
+/* ===================================================
+   SECCIÓN CONOCENOS - MAQUETADO GENERAL (ESCRITORIO)
+=================================================== */
+
+.conocenos {
+  padding: 80px 0;
+  background-color: #ffffff; /* Fondo blanco explícito */
+}
+
+.conocenos__inner .section-head {
+  max-width: 720px;
+  margin: 0 auto 64px;
+  text-align: center;
+}
+
+.conocenos__inner .section-head h2 {
+  font-size: 2.5rem;
+  color: var(--color-negro);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.conocenos__inner .section-head p {
+  margin-left: auto;
+  margin-right: auto;
+  color: #444444;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* --- Dos columnas: foto + texto --- */
+.conocenos__content {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
+  gap: 64px;
+  align-items: center;
+}
+
+/* --- Foto con marco rojo descentrado --- */
+.conocenos__image-wrapper {
+  position: relative;
+}
+
+.conocenos__image-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: -20px;
+  right: 20px;
+  bottom: -20px;
+  border: 2px solid var(--color-rojo);
+  border-radius: var(--radius-md);
+  z-index: 0;
+}
+
+.conocenos__image {
+  position: relative;
+  z-index: 1;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.15);
+}
+
+.conocenos__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.7s ease;
+}
+
+.conocenos__image:hover img {
+  transform: scale(1.04);
+}
+
+/* --- Placa sobre la foto --- */
+.conocenos__image-label {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 18px;
+  background: rgba(11, 11, 11, 0.88);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-left: 3px solid var(--color-rojo);
+}
+
+.conocenos__image-label span {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-blanco);
+}
+
+.conocenos__image-label small {
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--color-amarillo);
+}
+
+/* --- Columna de texto --- */
+.conocenos__text {
+  display: flex;
+  flex-direction: column;
+}
+
+.conocenos__small-title {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-rojo);
+  margin-bottom: 12px;
+}
+
+.conocenos__text h3 {
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+  line-height: 1.15;
+  color: var(--color-negro);
+  margin-bottom: 20px;
+  font-weight: 800;
+}
+
+.conocenos__text h3 span {
+  color: var(--color-rojo);
+}
+
+/* --- Párrafos --- */
+.conocenos__text p {
+  color: #222222;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.conocenos__text p:last-of-type {
+  margin-bottom: 0;
+}
+
+/* --- Estadísticas (Escritorio) --- */
+.conocenos__highlights {
+  display: flex;
+  gap: 32px;
+  margin-top: 36px;
+  padding-top: 28px;
+  border-top: 1px solid var(--color-amarillo);
+}
+
+.conocenos__highlight {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Líneas divisorias entre estadísticas */
+.conocenos__highlight + .conocenos__highlight {
+  padding-left: 32px;
+  border-left: 2px solid var(--color-amarillo);
+}
+
+.conocenos__highlight strong {
+  font-family: var(--font-display);
+  font-size: 2.1rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--color-rojo);
+}
+
+.conocenos__highlight span {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--color-gris-medio);
+}
+
+
+/* ===================================================
+   RESPONSIVE TABLETS (PANTALLAS MEDIANAS)
+=================================================== */
+
+@media (max-width: 900px) {
+  .conocenos__content {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  /* Imagen */
+  .conocenos__image-wrapper {
+    width: calc(100% - 16px);
+    margin-left: 16px;
+  }
+
+  .conocenos__image-wrapper::before {
+    left: -16px;
+    right: 16px;
+    top: 16px;
+    bottom: -16px;
+  }
+
+  .conocenos__image {
+    aspect-ratio: 16 / 10;
+  }
+
+  /* Texto */
+  .conocenos__text {
+    width: 100%;
+  }
+
+  .conocenos__text h3 {
+    font-size: 2rem;
+  }
+
+  /* Estadísticas */
+  .conocenos__highlights {
+    flex-wrap: wrap;
+    row-gap: 20px;
+  }
+
+  .conocenos__highlight + .conocenos__highlight {
+    padding-left: 2px;
+    border-left: none;
+
+  }
+}
+
+
+
+@media (max-width: 400px) {
+
+  .conocenos__highlights {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .conocenos__highlight {
+    width: 100%;
+    padding: 14px 0;
+    margin: 0;
+    border-left: none;
+    border-top: none;
+  }
+
+  .conocenos__highlight:first-child {
+    padding-top: 0;
+  }
+
+  .conocenos__highlight:nth-child(2) {
+    padding-left: 0;
+    border-left: none;
+  }
+
+  .conocenos__highlight:nth-child(3) {
+    padding: 18px 0 0;
+    margin-top: 14px;
+    border-left: none;
+    border-top: 2px solid var(--color-amarillo);
+  }
+
+  .conocenos__highlight strong {
+    font-size: 1.4rem;
+  }
+
+  .conocenos__highlight span {
+    font-size: 0.68rem;
+  }
+}

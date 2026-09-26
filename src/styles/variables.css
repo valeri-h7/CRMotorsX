@@ -1,0 +1,19 @@
+:root {
+  /* Paleta CR Motors */
+  --color-rojo: #D71920;       /* principal / acción */
+  --color-negro: #0B0B0B;
+  --color-gris-oscuro: #1C1C1C;
+  --color-gris-medio: #8A8A8A;
+  --color-blanco: #F5F5F5;
+  --color-amarillo: #F5C400;   /* solo acento puntual, sin abusar */
+
+  --font-display: 'Saira Condensed', sans-serif; /* títulos */
+  --font-body: 'Inter', sans-serif;               /* texto */
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+
+  --container-width: 1180px;
+  --section-padding-y: 88px;
+  --section-padding-y-mobile: 56px;
+}

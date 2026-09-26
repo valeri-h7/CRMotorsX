@@ -1,0 +1,69 @@
+/* ===================================================
+   Base compartida — duplicada a propósito para que este
+   archivo sea autónomo (ver notas del proyecto sobre por
+   qué se sacó del global.css).
+   =================================================== */
+
+/* --- Contenedor (compartido) --- */
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* --- Ritmo vertical de la sección (compartido) --- */
+.section {
+  padding: var(--section-padding-y) 0;
+}
+
+@media (max-width: 768px) {
+  .section { padding: var(--section-padding-y-mobile) 0; }
+}
+
+/* --- Encabezado de sección (compartido) --- */
+.section-head {
+  max-width: 620px;
+  margin-bottom: 40px;
+}
+
+.section-head h2 {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  text-transform: uppercase;
+}
+
+.section-head p {
+  color: var(--color-gris-medio);
+  margin-top: 12px;
+  font-size: 1.05rem;
+}
+
+.porque__grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+.porque__item {
+  border-top: 3px solid var(--color-rojo);
+  padding-top: 16px;
+}
+
+.porque__item h3 {
+  font-size: 1.15rem;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.porque__item p {
+  color: var(--color-gris-medio);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 900px) {
+  .porque__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+  .porque__grid { grid-template-columns: 1fr; }
+}
