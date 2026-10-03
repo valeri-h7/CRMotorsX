@@ -1,155 +1,124 @@
+
 .hero {
   position: relative;
-  height: 80vh;
+
   display: flex;
   align-items: center;
+
+  min-height: 95Vh;     /* respaldo para navegadores viejos */
+  min-height: 95svh;    /* svh = alto real visible en celu (descuenta la barra del navegador) */
+  /* deja lugar al header fijo, que flota sobre el Hero */
+  padding-block: calc(var(--header-h) + 1.5rem) 2rem;
+
   color: var(--color-blanco);
+  background-color: var(--color-negro);
   overflow: hidden;
-  background-color: #0b0b0b;
-  width: 100vw;
-  height: 90vh;
 }
 
-/* --- VIDEO DE FONDO --- */
+/* --- Video de fondo --- */
 
 .hero__video {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  inset: 0;
+  z-index: 0;
 
   width: 100%;
   height: 100%;
-
   object-fit: cover;
-
-  transform: translate(-50%, -50%);
-
-  z-index: 0;
 }
 
-/* --- CAPA OSCURA SOBRE EL VIDEO --- */
+/* --- Capa oscura sobre el video --- */
 
 .hero__overlay {
   position: absolute;
   inset: 0;
+  z-index: 1;
 
-  /* Oscurece más la zona izquierda donde está el contenido */
   background: linear-gradient(
     135deg,
     rgba(11, 11, 11, 0.92) 0%,
     rgba(11, 11, 11, 0.65) 50%,
     rgba(11, 11, 11, 0.4) 100%
   );
-
-  z-index: 1;
 }
 
-/* --- CONTENIDO --- */
+/* --- Contenido --- */
 
 .hero__content {
   position: relative;
-  max-width: 640px;
   z-index: 2;
-  padding: 0 1rem;
 }
 
-
-/* --- PEQUEÑO TÍTULO SUPERIOR --- */
+.hero__content > * {
+  max-width: 680px;
+}
 
 .hero__eyebrow {
   display: inline-block;
+  margin-bottom: 0.6rem;
 
   font-family: var(--font-display);
-  font-size: 0.95rem;
+  font-size: var(--fs-sm);
   font-weight: 700;
-
   letter-spacing: 2px;
   text-transform: uppercase;
-
   color: var(--color-rojo);
-
-  margin-bottom: 12px;
 }
 
-/* --- TÍTULO PRINCIPAL --- */
-
 .hero h1 {
-  font-size: clamp(2.5rem, 6vw, 4rem);
+  margin-bottom: 0.5em;
 
   text-transform: uppercase;
-
-  margin-bottom: 20px;
-
+  text-wrap: balance;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
 }
 
-/* --- DESCRIPCIÓN --- */
+.hero__lead {
+  max-width: 34em;
+  margin-bottom: 1.5rem;
 
-.hero p {
-  font-size: 1.1rem;
-
+  font-size: var(--fs-lg);
   color: #d9d9d9;
-
-  margin-bottom: 32px;
-
-  max-width: 480px;
-
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
-/* --- BOTONES --- */
+/* --- Botones --- */
 
 .hero__actions {
   display: flex;
-
-  gap: 16px;
-
   flex-wrap: wrap;
-
-  margin-bottom: 48px;
+  gap: 10px;
+  margin-bottom: 1.5rem;
 }
+
 
 .hero__actions .btn--outline {
   color: var(--color-blanco);
 }
 
-/* --- CHIPS DE CONFIANZA --- */
+/* --- Chips de confianza --- */
 
 .hero__badges {
   display: flex;
-
-  gap: 10px;
-
   flex-wrap: wrap;
-
-  margin-bottom: 28px;
+  gap: 6px;
+  margin-bottom: 1.25rem;
+  list-style: none;
 }
 
 .hero__badge {
-  display: inline-flex;
-
-  align-items: center;
-
-  gap: 6px;
-
-  padding: 6px 14px;
-
-  border-radius: 999px;
+  padding: 5px 11px;
 
   border: 1px solid rgba(255, 255, 255, 0.25);
-
+  border-radius: 999px;
   background: rgba(255, 255, 255, 0.06);
 
-  font-size: 0.8rem;
-
+  font-size: 0.7rem;
   font-weight: 600;
-
   letter-spacing: 0.3px;
-
   text-transform: uppercase;
-
-  color: var(--color-blanco);
 }
+
 
 
 /* --- MÉTODOS DE PAGO --- */
@@ -208,22 +177,42 @@
   letter-spacing: 0.4px;
 }
 
-/* --- MOBILE --- */
 
-@media (max-width: 768px) {
+/* --- Compu --- */
 
-  .payment-badge {
-    min-height: 34px;
-    padding: 3px 7px;
+@media (min-width: 769px) {
+  .hero {
+    padding-block: calc(var(--header-h) + 2rem) 3rem;
   }
 
-  .payment-badge svg {
-    width: 42px;
-    height: 28px;
+  .hero__actions {
+    gap: 16px;
+    margin-bottom: 2.5rem;
   }
 
-  .payment-badge--icon svg {
-    width: 22px;
-    height: 22px;
+  .hero__actions .btn {
+    flex: 0 0 auto;
+  }
+
+  .hero__badges {
+    gap: 10px;
+    margin-bottom: 1.75rem;
+  }
+
+  .hero__badge {
+    padding: 6px 14px;
+    font-size: 0.8rem;
   }
 }
+
+/* En celular el texto ocupa todo el ancho: oscurecemos parejo */
+@media (max-width: 768px) {
+  .hero__overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(11, 11, 11, 0.82) 0%,
+      rgba(11, 11, 11, 0.7) 100%
+    );
+  }
+}
+
